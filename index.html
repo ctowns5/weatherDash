@@ -12,11 +12,11 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>WeatherDash</title>
   </head>
-  <body>
+  <body onload="DefaultCity()">
     <div>
         <h1 id="mainTitle">5 Day Weather Dashboard</h1>
         <p id="inputContainer">City: <input type="text" id="cityInput"></p>
-        <button>Change City</button>
+        <button onclick ="getCityInfo()">Change City</button>
         <h2 id="cityName">Denver</h2>
     </div>
     <div id="weatherContainer">
@@ -24,41 +24,41 @@
             <div class="icons">
                 <p class="weather" id="day1"></p>
                 <div class="image"><img src="./assets/images/nada.png"  class="imgClass" id="img1">
-                    <p class="tempvalues" id="day1temp">fetching...</p>
-                    <p class="humidityvalues" id="day1humidity">fetching...</p>
-                    <p class="windvalues" id="day1wind">fetching...</p>
+                    <p class="tempValues" id="day1temp">fetching...</p>
+                    <p class="humidityValues" id="day1humidity">fetching...</p>
+                    <p class="windValues" id="day1wind">fetching...</p>
                 </div>
             </div>
             <div class="icons">
                 <p class="weather" id="day2"></p>
                 <div class="image"><img src="./assets/images/nada.png"  class="imgClass" id="img2">
-                    <p class="tempvalues" id="day2temp">fetching...</p>
-                    <p class="humidityvalues" id="day2humidity">fetching...</p>
-                    <p class="windvalues" id="day2wind">fetching...</p>
+                    <p class="tempValues" id="day2temp">fetching...</p>
+                    <p class="humidityValues" id="day2humidity">fetching...</p>
+                    <p class="windValues" id="day2wind">fetching...</p>
                 </div>
             </div>
             <div class="icons">
                 <p class="weather" id="day3"></p>
                 <div class="image"><img src="./assets/images/nada.png"  class="imgClass" id="img3">
-                    <p class="tempvalues" id="day3temp">fetching...</p>
-                    <p class="humidityvalues" id="day3humidity">fetching...</p>
-                    <p class="windvalues" id="day3wind">fetching...</p>
+                    <p class="tempValues" id="day3temp">fetching...</p>
+                    <p class="humidityValues" id="day3humidity">fetching...</p>
+                    <p class="windValues" id="day3wind">fetching...</p>
                 </div>
             </div>
             <div class="icons">
                 <p class="weather" id="day4"></p>
                 <div class="image"><img src="./assets/images/nada.png"  class="imgClass" id="img4">
-                    <p class="tempvalues" id="day4temp">fetching...</p>
-                    <p class="humidityvalues" id="day4humidity">fetching...</p>
-                    <p class="windvalues" id="day4wind">fetching...</p>
+                    <p class="tempValues" id="day4temp">fetching...</p>
+                    <p class="humidityValues" id="day4humidity">fetching...</p>
+                    <p class="windValues" id="day4wind">fetching...</p>
                 </div>
             </div>
             <div class="icons">
                 <p class="weather" id="day5"></p>
                 <div class="image"><img src="./assets/images/nada.png"  class="imgClass" id="img5">
-                    <p class="tempvalues" id="day5temp">fetching...</p>
-                    <p class="humidityvalues" id="day5humidity">fetching...</p>
-                    <p class="windvalues" id="day5wind">fetching...</p>
+                    <p class="tempValues" id="day5temp">fetching...</p>
+                    <p class="humidityValues" id="day5humidity">fetching...</p>
+                    <p class="windValues" id="day5wind">fetching...</p>
                 </div>
             </div>
 
