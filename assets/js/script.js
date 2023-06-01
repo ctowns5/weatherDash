@@ -26,14 +26,14 @@ function weatherFetch() {
         wind_speed = weatherURL.wind.speed;
         console.log(weatherURL);
         console.log(weatherURL.weather[0]);
-        tempDisplay.textContent = "Temperature: " + temperature + " degrees";
-        humidDisplay.textContent = "Humidity: " + humidity + " Percent";
-        windDisplay.textContent = "Wind Speed " + wind_speed + "mph";
+        tempDisplay.textContent = "Temperature: " + temperature + " F";
+        humidDisplay.textContent = "Relative Humidity: " + humidity + " %";
+        windDisplay.textContent = "Wind Speed: " + wind_speed + "mph";
         body.appendChild(weatherDisplay);
         weatherDisplay.appendChild(tempDisplay);
         weatherDisplay.appendChild(humidDisplay);
         weatherDisplay.appendChild(windDisplay);   
-        weatherStatus.textContent = "Status: " + weatherURL.weather[0].main;
+        weatherStatus.textContent = "Current conditions: " + weatherURL.weather[0].main;
         weatherDisplay.appendChild(weatherStatus);
         
   
