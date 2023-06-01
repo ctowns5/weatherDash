@@ -53,10 +53,9 @@ function getCityInfo() {
   var newName = document.getElementById("cityInput");
   var cityName = document.getElementById("cityName");
   cityName.innerHTML = newName.value;
-//   console.log (newName)
-  fetch("https://api.openweathermap.org/data/2.5/forecast?lat=39.73&lon=-104.99&units=imperial&appid=2fd2f73ffd2c3e1baf54a253b940ab7c"
-  )
-    //fetch ("https://api.openweathermap.org/data/2.5/forecast?q='+newName.value+'&units=imperial&appid=2fd2f73ffd2c3e1baf54a253b940ab7c")
+  console.log (newName)
+  //fetch("https://api.openweathermap.org/data/2.5/forecast?lat=39.73&lon=-104.99&units=imperial&appid=2fd2f73ffd2c3e1baf54a253b940ab7c")
+    fetch ("https://api.openweathermap.org/data/2.5/forecast?q='newName.value'&units=imperial&appid=2fd2f73ffd2c3e1baf54a253b940ab7c")
     .then((response) => response.json())
     .then((data) => {
       for (i = 0; i < 5; i++) {
