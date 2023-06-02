@@ -4,14 +4,55 @@ var tempDisplay = document.createElement("p");
 var weatherStatus = document.createElement("p");
 var humidDisplay = document.createElement("p");
 var windDisplay = document.createElement("p");
+var apiKey = "2fd2f73ffd2c3e1baf54a253b940ab7c"
+var newName = document.getElementById("cityInput");
+var cityName = document.getElementById("cityName");
+var lat = localStorage.getItem("lat")
+var lon = localStorage.getItem("lon")
 weatherDisplay.setAttribute("style", "color: white");
+//console.log(cityName)
+// fetch(https://api.openweathermap.org/geo/1.0/direct?q=Columbia&limit=5&appid=2fd2f73ffd2c3e1baf54a253b940ab7c) geo for columbia
+//function for getting geotrans via api
+// var lat;
+// var lon;
 
-// fetch(https://api.openweathermap.org/geo/1.0/direct?q=Columbia&limit=5&appid=2fd2f73ffd2c3e1baf54a253b940ab7c) geo for London
+// var nametofetch = `https://api.openweathermap.org/geo/1.0/direct?q=Denver&limit=1&appid=2fd2f73ffd2c3e1baf54a253b940ab7c`
+//     //var nametofetch = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${apiKey}`
+// fetch(nametofetch)
+//   .then((response) => response.json())
+//   .then(data => {
+//       // console.log (data[0].lat)
+//       lat = (data[0].lat)
+//       lon = (data[0].lon)
+      
+//   })
+//console.log (cityName)
+function nametolatlon() {
+    //var nametofetch = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=2fd2f73ffd2c3e1baf54a253b940ab7c`
+    var nametofetch = `https://api.openweathermap.org/geo/1.0/direct?q=Denver&limit=1&appid=${apiKey}`
+    fetch(nametofetch)
+    .then((response) => response.json())
+    .then(data => {
+      // console.log (data[0].lat)
+      localStorage.setItem("lat", (data[0].lat))
+      localStorage.setItem("lon", (data[0].lon))
+    // lat = (data[0].lat);
+    // lon = (data[0].lon);
+    // console.log (lon)
+    // console.log (lat)
+    })
+    
+    }
+  
+nametolatlon()
+//console.log (lon)
+//console.log (lat)
+
 
 function weatherFetch() {
     var weatherURL;
-    // var weatherRequestURL = "https://api.openweathermap.org/data/3.0/onecall?lat=39.73&lon=-104.99&units=imperial&appid=2fd2f73ffd2c3e1baf54a253b940ab7c";
-    var weatherRequestURL = "https://api.openweathermap.org/data/2.5/weather?q=Denver&units=imperial&appid=2fd2f73ffd2c3e1baf54a253b940ab7c";
+    //var weatherRequestURL = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
+    var weatherRequestURL = `https://api.openweathermap.org/data/2.5/weather?q=Denver&units=imperial&appid=${apiKey}`;
     fetch(weatherRequestURL, weatherURL)
       .then(function (response) {
         // console.log(response);
@@ -21,8 +62,8 @@ function weatherFetch() {
         temperature = weatherURL.main.temp;
         humidity = weatherURL.main.humidity;
         wind_speed = weatherURL.wind.speed;
-        console.log(weatherURL);
-        console.log(weatherURL.weather[0]);
+        //console.log(weatherURL);
+        //console.log(weatherURL.weather[0]);
         tempDisplay.textContent = "Temperature: " + temperature + " F";
         humidDisplay.textContent = "Relative Humidity: " + humidity + " %";
         windDisplay.textContent = "Wind Speed: " + wind_speed + "mph";
@@ -38,7 +79,6 @@ function weatherFetch() {
 
   weatherFetch();
 
-//function for getting geotrans via api
 var d = new Date();
 var weekday = [
   "Sunday",
@@ -50,12 +90,12 @@ var weekday = [
   "Saturday",
 ];
 function getCityInfo() {
-  var newName = document.getElementById("cityInput");
-  var cityName = document.getElementById("cityName");
+  // var newName = document.getElementById("cityInput");
+  // console.log(cityName)
   cityName.innerHTML = newName.value;
-  console.log (newName)
-  //fetch("https://api.openweathermap.org/data/2.5/forecast?lat=39.73&lon=-104.99&units=imperial&appid=2fd2f73ffd2c3e1baf54a253b940ab7c")
-    fetch ("https://api.openweathermap.org/data/2.5/forecast?q='newName.value'&units=imperial&appid=2fd2f73ffd2c3e1baf54a253b940ab7c")
+  // console.log (newName)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`)
+    //fetch (`https://api.openweathermap.org/data/2.5/forecast?q=${newName.value}&units=imperial&appid${apiKey}`)
     .then((response) => response.json())
     .then((data) => {
       for (i = 0; i < 5; i++) {
