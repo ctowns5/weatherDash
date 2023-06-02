@@ -10,4 +10,4 @@ https://github.com/ctowns5/weatherDash
 
 ## The URL of the deployed application
 
-https://ctowns5.github.io/Quizzy/
+https://ctowns5.github.io/weatherDash/
